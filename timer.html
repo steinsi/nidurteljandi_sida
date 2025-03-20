@@ -6,10 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="robots" content="noindex,nofollow">
         <title>
-            Countdown timer
+            Countdown to RAGNAROK
         </title>
         <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
-
         <style>
             body {
                 font-family: 'Major Mono Display', monospace;
@@ -28,16 +27,16 @@
 
             .section
             {
-                /* height: 48px; */
-                /* line-height: 48px; */
+                 height: 48px; 
+                 line-height: 48px; 
             }
 
             .border-bottom-class
             {
-                /* border-bottom: 1px solid #8c8c8c; */
+                 border-bottom: 1px solid #8c8c8c; 
             }
 
-            /* .days-color {
+             .days-color {
                
             }
 
@@ -51,7 +50,7 @@
 
             .seconds-color {
                 
-            } */
+            }
 
             .container {
                 width: 100%;
@@ -68,25 +67,23 @@
             <div class="container">
                 <div class="section">
                     <div class="text">
-                        current date:
+                        dagurinn í dag:
                     </div>
                 </div>
                 <div class="section" style="margin-bottom: 60px;">
                     <div id="current-date" class="text"></div>
                 </div>
-
                 <div class="section">
                     <div class="text">
-                        end date:
+                        upphafið á endinum:
                     </div>
                 </div>
                 <div class="section" style="margin-bottom: 60px;">
                     <div id="end-date" class="text"></div>
                 </div>
-                
                 <div class="section">
                     <div class="text">
-                        time left:
+                        tími til:
                     </div>
                 </div>
                 <div class="section border-bottom-class">
@@ -105,39 +102,32 @@
                     <div id="seconds" class="text seconds-color"></div>
                 </div>
             </div>
-
         <script>
             // Set the date we're counting down to
             var datetime = "Jan 01 2026 00:00:00"
             var countDownDate = new Date(datetime).getTime();
 
             document.getElementById("end-date").innerHTML = datetime
-
             // Update the count down every 1 second
             var x = setInterval(function() {
                 // Get today's date and time
                 var time = new Date()
                 var now = time.getTime();
-
                 currentDate = String(time).slice(4, 25)
                 document.getElementById("current-date").innerHTML = currentDate
-
                 // Find the distance between now and the count down date
                 var distance = countDownDate - now;
-
                 // Time calculations for days, hours, minutes and seconds
                 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
                 // Display the result in the element with id="demo"
                 document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
                 document.getElementById("days").innerHTML = days + " days";
                 document.getElementById("hours").innerHTML = Math.floor((distance / (1000 * 60 * 60))) + " hours";
                 document.getElementById("minutes").innerHTML = Math.floor((distance / (1000 * 60))) + " minutes";
                 document.getElementById("seconds").innerHTML = Math.floor((distance / 1000)) + " seconds";
-
                 // If the count down is finished, write some text
                 if (distance < 0) {
                     clearInterval(x);
